@@ -19,6 +19,7 @@
 int	ft_putnbr(va_list *args);
 int	ft_putstr(va_list *args);
 int	ft_putchar(va_list *args);
+int ft_putunsign_int(va_list *args);
 int ft_putpercent(va_list *args);
 int	ft_printchar(char c);
 int  ft_printf(const char *str, ...);

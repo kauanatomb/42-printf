@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 static int	ft_putnbr_aux(int n)
 {

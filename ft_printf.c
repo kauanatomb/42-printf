@@ -19,7 +19,7 @@ static t_dispatch table[] = {
     {'i', ft_putnbr},
     {'c', ft_putchar},
     {'%', ft_putpercent},
-    // {'u', ft_putunsign_int},
+    {'u', ft_putunsign_int},
     // {'x', ft_puthex},
     // {'X', ft_puthex},
     // {'p', ft_putpointer},
@@ -64,9 +64,9 @@ int  ft_printf(const char *str, ...)
 
 int main(void)
 {
-    int result = ft_printf("Olá, %s, você tem %d anos %%", "Kauana", 250678);
+    int result = ft_printf("Olá, %s, você tem %u anos %%", "Kauana", 250678);
     ft_printf("%i\n", result);
-    int result2 = printf("Olá, %s, você tem %d anos %%", "Kauana", 250678);
+    int result2 = printf("Olá, %s, você tem %u anos %%", "Kauana", 250678);
     printf("%i\n", result2);
     return (0);
 }
