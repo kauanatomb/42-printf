@@ -17,7 +17,7 @@ RM				= rm -f
 
 SRCS			=	ft_printf.c \
 					printers/ft_putchar.c printers/ft_puthex.c \
-					printers/ft_putnbr.c printers/ft_print_address.c \
+					printers/ft_putnbr.c printers/ft_convertptr.c \
 					printers/ft_putstr.c printers/ft_putunsign_int.c \
 					helper/ft_safeadd.c
 

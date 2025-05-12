@@ -25,10 +25,10 @@ static int	check_format(char c, va_list *args)
 		return (ft_putunsign_int(va_arg(*args, unsigned int)));
 	else if (c == 'x' || c == 'X')
 		return (ft_puthex(va_arg(*args, unsigned int), c));
-	else if (c == 'p')
-		return (ft_putstr("0x") + ft_print_address((uintptr_t)va_arg(*args, void *)));
 	else if (c == '%')
 		return (ft_putchar(c));
+	else if (c == 'p')
+		return (ft_putstr("0x") + ft_convertptr(va_arg(*args, void *)));
 	return (0);
 }
 
