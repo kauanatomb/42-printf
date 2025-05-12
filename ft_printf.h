@@ -16,17 +16,10 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-int	ft_putnbr(va_list *args);
-int	ft_putstr(va_list *args);
-int	ft_putchar(va_list *args);
-int ft_putunsign_int(va_list *args);
-int ft_putpercent(va_list *args);
-int	ft_printchar(char c);
+int	ft_putnbr(int n);
+int	ft_putstr(char *s);
+int	ft_putchar(char c);
+int ft_putunsign_int(unsigned int n);
 int  ft_printf(const char *str, ...);
-
-typedef struct {
-  char specifier;
-  int (*f)(va_list *args);
-} t_dispatch;
 
 #endif

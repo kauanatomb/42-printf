@@ -13,29 +13,19 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
-static t_dispatch table[] = {
-    {'s', ft_putstr},
-    {'d', ft_putnbr},
-    {'i', ft_putnbr},
-    {'c', ft_putchar},
-    {'%', ft_putpercent},
-    {'u', ft_putunsign_int},
-    // {'x', ft_puthex},
-    // {'X', ft_puthex},
-    // {'p', ft_putpointer},
-    {0, NULL}
-};
-
-static int dispatch(char spec, va_list *args) {
-  int j;
-  
-  j = 0;
-  while (table[j].specifier) {
-    if (table[j].specifier == spec)
-      return table[j].f(args);
-    j++;
-  }
-  return 0;
+static int check_format(char c, va_list *args)
+{
+    if (c == 's')
+        return (ft_putstr((char *) va_arg(*args, char *)));
+    else if (c == 'd' || c == 'i')
+        return (ft_putnbr(va_arg(*args, int)));
+    else if (c == 'u')
+        return (ft_putunsign_int((unsigned int) va_arg(*args, unsigned int)));
+    else if (c == 'c')
+        return (ft_putchar((char) va_arg(*args, int)));
+    else if (c == '%')
+        return (ft_putchar(c));
+    return (0);
 }
 
 int  ft_printf(const char *str, ...)
@@ -52,10 +42,10 @@ int  ft_printf(const char *str, ...)
       if (str[i] == '%' && str[i + 1])
       {
         i++;
-        count += dispatch(str[i], &args);
+        count += check_format(str[i], &args);
       }
       else
-        count += ft_printchar(str[i]);
+        count += ft_putchar(str[i]);
       i++;
     }
     va_end(args);

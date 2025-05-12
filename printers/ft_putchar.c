@@ -1,9 +1,6 @@
 #include "../ft_printf.h"
 
-int	ft_putchar(va_list *args)
+int	ft_putchar(char c)
 {
-	char	c;
-
-	c = (char)va_arg(*args, int);
-	return (ft_printchar(c));
+	return (write(1, &c, 1));
 }
