@@ -16,13 +16,17 @@
 static int check_format(char c, va_list *args)
 {
     if (c == 's')
-        return (ft_putstr((char *) va_arg(*args, char *)));
+        return (ft_putstr(va_arg(*args, char *)));
+    else if (c == 'c')
+        return (ft_putchar((char) va_arg(*args, int)));
     else if (c == 'd' || c == 'i')
         return (ft_putnbr(va_arg(*args, int)));
     else if (c == 'u')
-        return (ft_putunsign_int((unsigned int) va_arg(*args, unsigned int)));
-    else if (c == 'c')
-        return (ft_putchar((char) va_arg(*args, int)));
+        return (ft_putunsign_int(va_arg(*args, unsigned int)));
+    else if (c == 'x' || c == 'X')
+        return (ft_puthex(va_arg(*args, unsigned int), c));
+    else if (c == 'p')
+        return (ft_putstr("0x") + ft_print_address((uintptr_t)va_arg(*args, void *)));
     else if (c == '%')
         return (ft_putchar(c));
     return (0);
@@ -54,9 +58,11 @@ int  ft_printf(const char *str, ...)
 
 int main(void)
 {
-    int result = ft_printf("Olá, %s, você tem %u anos %%", "Kauana", 250678);
+    char *s = NULL;
+    int i = 1234;
+    int result = ft_printf("Olá, %s, você tem %u anos %%, %x e %X, e %p ", s, 250678, 7891234, 123456, &i);
     ft_printf("%i\n", result);
-    int result2 = printf("Olá, %s, você tem %u anos %%", "Kauana", 250678);
+    int result2 = printf("Olá, %s, você tem %u anos %%, %x e %X, e %p ", s, 250678, 7891234, 123456, &i);
     printf("%i\n", result2);
     return (0);
 }
