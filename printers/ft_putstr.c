@@ -3,12 +3,17 @@
 int	ft_putstr(char *s)
 {
 	int	count;
+	int res;
 
+	if (!s)
+		return ft_putstr("(null)");
 	count = 0;
+	res = 0;
 	while (*s)
 	{
-		count += ft_putchar(*s);
-		s++;
+		res = ft_putchar(*s++);
+		if (ft_safeadd(&count, res) == -1)
+			return (-1);
 	}
 	return (count);
 }
