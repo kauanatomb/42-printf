@@ -55,14 +55,3 @@ int	ft_printf(const char *str, ...)
 	va_end(args);
 	return (count);
 }
-
-int main(void)
-{
-    char *s = NULL;
-    int i = 1234;
-    int result = ft_printf("Olá, %s, você tem %u anos %%, %x e %X, e %p ", s, 250678, 7891234, 123456, &i);
-    ft_printf("%i\n", result);
-    int result2 = printf("Olá, %s, você tem %u anos %%, %x e %X, e %p ", s, 250678, 7891234, 123456, &i);
-    printf("%i\n", result2);
-    return (0);
-}
