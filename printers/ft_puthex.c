@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ktombola <ktombola@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/05/12 13:47:56 by ktombola          #+#    #+#             */
+/*   Updated: 2025/05/12 13:48:28 by ktombola         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
 int	ft_puthex(unsigned int n, char c)
@@ -6,7 +18,7 @@ int	ft_puthex(unsigned int n, char c)
 	int	res;
 
 	count = 0;
-  res = 0;
+	res = 0;
 	if (n >= 16)
 	{
 		res = ft_puthex(n / 16, c);
