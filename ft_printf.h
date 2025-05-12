@@ -21,7 +21,7 @@ int	ft_putstr(char *s);
 int	ft_putchar(char c);
 int	ft_putunsign_int(unsigned int n);
 int	ft_puthex(unsigned int n, char c);
-int	ft_print_address(uintptr_t n);
+int	ft_convertptr(void *ptr);
 int	ft_safeadd(int *count, int val);
 int	ft_printf(const char *str, ...);
 
