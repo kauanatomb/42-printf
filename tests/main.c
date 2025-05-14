@@ -174,6 +174,13 @@ void    test_with_percentages(void) {
         printf("Match return values (%d)\n", ret1);
 }
 
+void    test_with_non_formatted_specifier(void) {
+
+    ft_printf("------TEST WITH NON FORMATTED SPECIFIER------\n");
+    printf("The real printf gives and error\n");
+    ft_printf("Non formatted specifier: %q lets see what happens");
+}
+
 int main(void) {
     test_with_str_and_int();
     test_with_hex();
@@ -188,5 +195,6 @@ int main(void) {
     test_with_dif_zero_formats();
     test_with_negatives_unsigned();
     test_with_percentages();
+    test_with_non_formatted_specifier();
     return (0);
 }
