@@ -6,12 +6,11 @@
 /*   By: ktombola <ktombola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 10:06:58 by ktombola          #+#    #+#             */
-/*   Updated: 2025/05/12 13:39:07 by ktombola         ###   ########.fr       */
+/*   Updated: 2025/05/15 16:25:30 by ktombola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 static int	check_format(char c, va_list *args)
 {
@@ -50,7 +49,7 @@ int	ft_printf(const char *str, ...)
 		else
 			res = ft_putchar(str[i]);
 		if (ft_safeadd(&count, res) == -1)
-				return (-1);
+			return (-1);
 		i++;
 	}
 	va_end(args);

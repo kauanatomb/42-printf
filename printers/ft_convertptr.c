@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convertptr.c                                 :+:      :+:    :+:   */
+/*   ft_convertptr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktombola <ktombola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 13:41:21 by ktombola          #+#    #+#             */
-/*   Updated: 2025/05/12 13:43:21 by ktombola         ###   ########.fr       */
+/*   Updated: 2025/05/15 16:26:22 by ktombola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ static int	ft_print_address(uintptr_t n, int count)
 
 int	ft_convertptr(void *ptr)
 {
-	uintptr_t	n;
-	int	count;
+	uintptr_t		n;
+	int				count;
 
 	if (!ptr)
 		return (ft_putstr("(nil)"));
