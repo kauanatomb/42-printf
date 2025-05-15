@@ -28,7 +28,7 @@ static int	check_format(char c, va_list *args)
 	else if (c == '%')
 		return (ft_putchar(c));
 	else if (c == 'p')
-		return (ft_putstr("0x") + ft_convertptr(va_arg(*args, void *)));
+		return (ft_convertptr(va_arg(*args, void *)));
 	return (0);
 }
 
@@ -37,19 +37,20 @@ int	ft_printf(const char *str, ...)
 	int		i;
 	va_list	args;
 	int		count;
+	int		res;
 
 	count = 0;
 	va_start(args, str);
 	i = 0;
 	while (str[i])
 	{
+		res = 0;
 		if (str[i] == '%' && str[i + 1])
-		{
-			i++;
-			count += check_format(str[i], &args);
-		}
+			res = check_format(str[++i], &args);
 		else
-			count += ft_putchar(str[i]);
+			res = ft_putchar(str[i]);
+		if (ft_safeadd(&count, res) == -1)
+				return (-1);
 		i++;
 	}
 	va_end(args);

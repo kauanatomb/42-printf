@@ -12,16 +12,14 @@
 
 #include "ft_printf.h"
 
-static int	ft_print_address(uintptr_t n)
+static int	ft_print_address(uintptr_t n, int count)
 {
-	int	count;
 	int	res;
 
-	count = 0;
 	res = 0;
 	if (n >= 16)
 	{
-		res = ft_print_address(n / 16);
+		res = ft_print_address(n / 16, res);
 		if (ft_safeadd(&count, res) == -1)
 			return (-1);
 	}
@@ -34,7 +32,14 @@ static int	ft_print_address(uintptr_t n)
 int	ft_convertptr(void *ptr)
 {
 	uintptr_t	n;
+	int	count;
 
+	if (!ptr)
+		return (ft_putstr("(nil)"));
 	n = (uintptr_t)ptr;
-	return (ft_print_address(n));
+	count = 0;
+	count = ft_putstr("0x");
+	if (count != 2)
+		return (-1);
+	return (ft_print_address(n, count));
 }
