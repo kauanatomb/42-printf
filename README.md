@@ -23,7 +23,7 @@ Supported format specifiers:
 Clone the repository:
 
 ```bash
-git clone https://github.com/kauanatomb/42-printf.git ft_printf
+git clone https://github.com/kauanatomb/42-ft_printf.git ft_printf
 cd ft_printf
 ```
 Compilation
